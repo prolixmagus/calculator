@@ -1,6 +1,3 @@
-body div {
-    border: solid black 1px;
-}
 
 body {
     box-sizing: border-box;
@@ -12,6 +9,7 @@ button {
     align-self: stretch;
     justify-self: stretch;
     border-radius: 10%;
+    box-shadow: 1px 1px 1px black;
 }
 
 
@@ -23,47 +21,43 @@ button {
 .heading{
     display: flex;
     justify-content: center;
-    margin-bottom: 1em;
+    margin: 2em;
+    font-size: 2em;
 }
 
 .grid-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    height: 75vh;
-    width: 50%;
+    grid-template-rows: minmax(2fr, auto) repeat(5, 1fr);
+    height: 50vh;
+    width: 35%;
     align-items: center;
     justify-items: center;
     background-color: #074490;
-    padding: 15px;
+    padding: 10px;
+    border: solid black 2px;
     border-radius: 3%;
     row-gap: 10px;
     column-gap: 5px;
+    min-width: 250px;
+    max-width: 500px;
 }
 
 .grid-container > button {
     justify-self: stretch;
 }
 
-.display-wrap {
-    grid-column: 1 / 6;
-    grid-row: 1 / 2;
-    align-self: stretch;
+.display{
+    grid-column: 1 / -1;
+    font-size: 2em;
     justify-self: stretch;
-    font-size: 3em;
+    text-align: right;
     background-color: silver;
     border: solid 1px;
-    display: flex;
     border: solid grey;
     border-width: .3em;
     border-radius: 5%;
-}
 
-.display {
-    color: black;
-    margin-left: auto;
-    margin-right: 0px;
-    align-self: center;
 }
 
 .plus-btn {
@@ -92,7 +86,6 @@ button {
 .num-btn {
     background-color: beige;
     font-size: 2em;
-    box-shadow: 1px black;
 }
 
 .decimal-btn {
