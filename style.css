@@ -1,0 +1,108 @@
+body div {
+    border: solid black 1px;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+button {
+    align-self: stretch;
+    justify-self: stretch;
+    border-radius: 10%;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    height: 75vh;
+    width: 50%;
+    align-items: center;
+    justify-items: center;
+    background-color: #074490;
+    padding: 15px;
+    border-radius: 3%;
+    row-gap: 10px;
+    column-gap: 5px;
+}
+
+.grid-container > button {
+    justify-self: stretch;
+}
+
+.display-wrap {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    align-self: stretch;
+    justify-self: stretch;
+    font-size: 3em;
+    background-color: silver;
+    border: solid 1px;
+    display: flex;
+    border: solid grey;
+    border-width: .3em;
+    border-radius: 5%;
+}
+
+.display {
+    color: black;
+    margin-left: auto;
+    margin-right: 0px;
+    align-self: center;
+}
+
+.plus-btn {
+    grid-column: 4 / 5;
+    grid-row: 2/4;
+    align-self: stretch;
+    background-color: rgb(208, 75, 75);
+    font-size: 3em;
+}
+
+.minus-btn {
+    grid-column: 5 / 6;
+    grid-row: 2 / 4;
+    align-self: stretch;
+    background-color: rgb(208, 75, 75);
+    font-size: 3em;
+}
+
+.equals-btn {
+    grid-column: 4 / 6;
+    grid-row: 5 / 6;
+    background-color: rgb(208, 75, 75);
+    font-size: 2em;
+}
+
+.num-btn {
+    background-color: beige;
+    font-size: 2em;
+    box-shadow: 1px black;
+}
+
+.decimal-btn {
+    background-color: beige;
+    font-size: 2em;
+}
+
+.multi-btn,
+.divide-btn,
+.clear-btn {
+    background-color: rgb(208, 75, 75);
+    font-size: 2em;
+}
