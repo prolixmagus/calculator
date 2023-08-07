@@ -7,7 +7,7 @@ Final project of the Foundations course in (TheOdinProject)[https://www.theodinp
 Utilize HTML, CSS, and Javascript to create a basic functioning calculator.
 
 ## Tools
-I will be practicing the use of
+I will be practicing the use of:
 <ul>
 <li>eventListeners</li>
 <li>anonymous functions / arrow functions</li>
@@ -18,4 +18,6 @@ I will be practicing the use of
 
 ## Features
 
-## Live Link
+## Live Links
+
+

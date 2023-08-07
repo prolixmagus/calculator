@@ -2,6 +2,7 @@ let num1 = null
 let num2 = null
 let operator = ''
 let displayValue = '0'
+let result = ''
 
 const numberButtons = document.querySelectorAll('.num-btn')
 const clearButton = document.querySelector('#clear')
@@ -14,21 +15,14 @@ const equalsButton = document.querySelector('#equals')
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
-const divide = (num1, num2) => Number((num1 / num2).toFixed(7))
-
-// operate functions
-function operate(num1, operator, num2) {
-    switch (operator) {
-        case '+':
-            return add(num1, num2);
-        case '-':
-            return subtract(num1, num2)
-        case 'x':
-            return multiply(num1, num2);
-        case '÷':
-            return divide(num1, num2);
+const divide = function(num1, num2) {
+    if (num2 === 0) {
+        result = 'if only';
+        displayValue = result
+        changeDisplay();
+    } else
+        return num1 / num2
     }
-}
 
 function changeDisplay() {
     const display = document.querySelector('#display');
@@ -56,6 +50,7 @@ function inputOperand() {
                 displayValue += button.value;
                 num1 = displayValue
                 changeDisplay();
+               
             } else {
                 if (displayValue === num1) {
                     displayValue = ''
@@ -68,25 +63,48 @@ function inputOperand() {
      });
 };
 
-function inputSecondOperand() {
-    //clears dispaly for second operand input
-        if (num1 !== '' && operator !== '') {
-            displayValue = ''
-            changeDisplay()
-        }
-    }
-
 function inputOperator() {
     operatorButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
             operator = button.value;
-        })
+        });
     });
 }
 
+function equals() {
+    equalsButton.addEventListener('click', () => {
+        result = operate(Number(num1), operator, Number(num2));
+        result = roundLargeNumbers(result)
+        displayValue = result;
+        changeDisplay();  
+    });
+}
+function roundLargeNumbers(){
+    if (result.toString().includes('.')) {
+        if (result.toString().split('.')[1].length > 4) {
+            return result.toFixed(6);
+          }
+        }
+        return result;
+      }
+
+// operate functions
+function operate(num1, operator, num2) {
+    switch (operator) {
+        case '+':
+            return add(num1, num2);
+        case '-':
+            return subtract(num1, num2)
+        case 'x':
+            return multiply(num1, num2);
+        case '÷':
+            return divide(num1, num2);
+    }
+}
 
 
 
 inputOperand()
 inputOperator()
 clearDisplay();
+equals()
