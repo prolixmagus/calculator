@@ -77,8 +77,6 @@ button {
     border: solid grey;
     border-width: .3em;
     border-radius: 5%;
-    word-wrap: break-word;
-    word-break: break-all;
 }
 
 .equals-btn {
