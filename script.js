@@ -6,17 +6,20 @@ let displayValue = '0'
 let result = ''
 
 //button querySelectors
-const numberButtons = document.querySelectorAll('.num-btn')
-const clearButton = document.querySelector('#clear')
-const operatorButtons = document.querySelectorAll('.operator')
-const decimalButton = document.querySelector('#decimal')
-const equalsButton = document.querySelector('#equals')
+const numberButtons = document.querySelectorAll('.num-btn');
+const clearButton = document.querySelector('#clear');
+const operatorButtons = document.querySelectorAll('.operator');
+const decimalButton = document.querySelector('#decimal');
+const equalsButton = document.querySelector('#equals');
+const percentButton = document.querySelector('#percent');
+const squareRootButton = document.querySelector('#square-root')
 
-// arithmetic function expressions
+// arithmetic logic
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) =>  num1 / num2;
+
 
 //number display
 function changeDisplay() {
@@ -35,6 +38,13 @@ function clearDisplay() {
 }
 
 //button input (event listeners)
+
+const equals = () => equalsButton.addEventListener('click', evaluate)
+const decimal = () => decimalButton.addEventListener('click', inputDecimal)
+const percent = () => percentButton.addEventListener('click', inputPercent)
+const squareRoot = () => squareRootButton.addEventListener('click', inputSquareRoot)
+
+
 function inputOperand() {
     numberButtons.forEach((button) => {
         button.addEventListener('click', () => {
@@ -44,7 +54,6 @@ function inputOperand() {
                 }
                 displayValue += button.value;
                 num1 = displayValue
-                console.log(num1)
                 changeDisplay();
             } else {
                 if (displayValue === num1) {
@@ -52,7 +61,6 @@ function inputOperand() {
                 }
                 displayValue += button.value;
                 num2 = displayValue
-                console.log(num2)
                 changeDisplay();
             }
         })
@@ -62,49 +70,53 @@ function inputOperand() {
 function inputOperator() {
     operatorButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
-            // (3 + 4) +
-            if (num1 !==null && operator !== '' && num2 !== null) {
                 evaluate()
                 operator = button.value
-            } else {
-            operator = button.value
-            }
         });
     });
 }
 
-function equals() {
-    equalsButton.addEventListener('click', evaluate)
+function inputDecimal() {
+    if (!displayValue.includes('.')) {
+        displayValue += '.'
+        changeDisplay()
+    }
 }
 
+function inputPercent() {
+    displayValue = (+displayValue / 100).toString();
+    displayValue = roundNumber(displayValue, 11);
+    num1 = displayValue;
+    result = displayValue;
+    console.log(num1);
+    changeDisplay();
+}
+
+function inputSquareRoot() {
+    if (displayValue !== '0' && displayValue !== null) { 
+        displayValue = Math.sqrt(+num1).toString();
+        displayValue = roundNumber(displayValue, 1);
+        num1 = displayValue;
+        result = displayValue;
+        changeDisplay();
+    }
+}
 
 function evaluate() {
         if (num1 !== null && operator !== '' && num2 !== null) {
             result = operate(Number(num1), operator, Number(num2));
-            if (result === Infinity) {
-                result = '(╯°□°)╯︵ ┻━┻';
+            if (operator === '÷' && num2 === '0') {
+                result = '(╯°□°)╯'
                 displayValue = result;
                 changeDisplay(); 
             }
-            result = roundLargeNumbers(result);
-            displayValue = result;      // display initial result
-            num1 = result               // for chaining operators
-            num2 = null;                // reset the value of num2
+            result = roundNumber(result, 11);
+            displayValue = result              // display initial result
+            num1 = result                      // for chaining operators
+            num2 = null;                      // reset the value of num2
             changeDisplay();  
-        } else {
-            displayValue = '0';
-            changeDisplay();
-        };
-    };
-
-function roundLargeNumbers(){
-    if (result.toString().includes('.')) {
-        if (result.toString().split('.')[1].length > 4) {
-            return result.toFixed(6);
-          }
-        }
-        return result;
-      }
+        } 
+    }
 
 function operate(num1, operator, num2) {
     switch (operator) {
@@ -119,11 +131,19 @@ function operate(num1, operator, num2) {
     }
 }
 
+function roundNumber(num, decimal) {
+    answer = Math.round(num * Math.pow(10, decimal)) / Math.pow(10, decimal)
+    return answer
+}
+
 function calculate() {
     inputOperand()
     inputOperator()
     clearDisplay();
     equals()
+    decimal()
+    percent()
+    squareRoot()
 }
 
 //all together now
