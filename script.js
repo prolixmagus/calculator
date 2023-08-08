@@ -95,7 +95,6 @@ function inputPercent(e) {
     limitDisplay(displayValue)
     num1 = displayValue;
     result = displayValue;
-    percentValue = e.target.value
     changeDisplay();
 }
 
@@ -136,7 +135,7 @@ function operate(num1, operator, num2) {
             return subtract(num1, num2)
         case 'x':
             return multiply(num1, num2);
-        case '÷':
+        case '/':
             return divide(num1, num2);
     }
 }
@@ -159,9 +158,12 @@ function keyboardInput() {
     window.addEventListener('keypress', (e) => {
         const key = document.querySelector(`button[value="${e.key}"]`)
         if (key) {
-            key.click()
+            if (e.key === "/") {
+                e.preventDefault();
             }
-        })
-    }
+            key.click();
+        }
+    })
+}
 
     
