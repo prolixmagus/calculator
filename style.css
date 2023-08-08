@@ -7,6 +7,7 @@ a {
 a:hover {
    color: blue;
 }
+
 body {
     box-sizing: border-box;
     margin: 0px;
@@ -20,6 +21,7 @@ button {
     justify-self: stretch;
     border-radius: 10%;
     box-shadow: 1px 1px 1px black;
+    outline: none;
 }
 
 
@@ -102,3 +104,4 @@ button {
     background-color: rgb(208, 75, 75);
     font-size: 2em;
 }
+
