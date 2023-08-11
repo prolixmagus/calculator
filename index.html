@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- nice use of defer, its my favorite way of ensuring page load before DOM manipulation -->
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,14 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div class="wrapper">
-        <div class ="heading">Javascripted Calculator</div>
-        <div class ="tribute">a tribute to the 
+        <div class="heading">Javascripted Calculator</div>
+        <div class="tribute">a tribute to the
             <a href="https://education.ti.com/en/products/calculators/elementary-calculators/ti-108">
-            TI-108 Elementary Calculator</a></div>
+                TI-108 Elementary Calculator
+            </a>
+        </div>
         <div class="grid-container">
             <div class="display" id="display">0</div>
+            <!-- Why use different classes for operators? -->
             <button class="num-btn" value="7" id="7">7</button>
             <button class="num-btn" value="8" id="8">8</button>
             <button class="num-btn" value="9" id="9">9</button>
@@ -26,21 +32,19 @@
             <button class="num-btn" value="4" id="4">4</button>
             <button class="num-btn" value="5" id="5">5</button>
             <button class="num-btn" value="6" id="6">6</button>
-            <button class="percent" value ="%" id="percent">%</button>
-            <button class="square-root" value="√" id="square-root">√</button> 
+            <button class="percent" value="%" id="percent">%</button>
+            <button class="square-root" value="√" id="square-root">√</button>
             <button class="num-btn" value="1" id="1">1</button>
             <button class="num-btn" value="2" id="2">2</button>
             <button class="num-btn" value="3" id="3">3</button>
-            <button class="operator multi-btn" value="x"  id="times">x</button>
+            <button class="operator multi-btn" value="x" id="times">x</button>
             <button class="operator divide-btn" value="/" id="divide">÷</button>
-            <button class="clear-btn" value ="c" id="clear">C</button>
+            <button class="clear-btn" value="c" id="clear">C</button>
             <button class="num-btn" value="0" id="0">0</button>
             <button class="decimal-btn" value="." id="decimal">.</button>
-            <button class="equals-btn" value ="=" alt-key="enter" id="equals">=</button>
-        </div>
-
-
+            <button class="equals-btn" value="=" alt-key="enter" id="equals">=</button>
         </div>
     </div>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+// Generally it's best to avoid global variables but for the purposes of this exercises this is fine! Do you know why that is a general best practice?
 //global variables
 let num1 = null
 let num2 = null
@@ -16,6 +17,7 @@ const percentButton = document.querySelector('#percent');
 const squareRootButton = document.querySelector('#square-root')
 
 // arithmetic logic
+// nice use of arrow functions! Are there any negatives / difference between arrow functions and functions defined via the function keyword?
 const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
@@ -108,6 +110,7 @@ function inputSquareRoot() {
     }
 }
 
+// Notes here are well placed.
 function evaluate() {
         if (num1 !== null && operator !== '' && num2 !== null) {
             result = operate(Number(num1), operator, Number(num2));
@@ -140,10 +143,11 @@ function operate(num1, operator, num2) {
     }
 }
 
+// Nice code modularity
 function calculate() {
     inputOperand()
     inputOperator()
-    clearDisplay();
+    clearDisplay(); // inconsistent use of ;
     equals()
     decimal()
     percent()
