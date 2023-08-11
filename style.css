@@ -49,8 +49,6 @@ button {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: minmax(2fr, 4fr) repeat(6, 1fr);
-    width: 35vh;
-    height: 45vh;
     align-items: center;
     justify-items: center;
     background-color: #074490;
