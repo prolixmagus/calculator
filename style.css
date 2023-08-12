@@ -1,5 +1,3 @@
-
-
 a {
     text-decoration: none;
 }
@@ -15,7 +13,6 @@ body {
     background-color: lightblue;
 }
 
-
 button {
     align-self: stretch;
     justify-self: stretch;
@@ -23,7 +20,6 @@ button {
     box-shadow: 1px 1px 1px black;
     outline: none;
 }
-
 
 .wrapper {
     display: flex;
@@ -57,7 +53,6 @@ button {
     border-radius: 3%;
     row-gap: 10px;
     column-gap: 5px;
-
 }
 
 .grid-container > button {

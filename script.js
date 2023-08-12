@@ -56,7 +56,7 @@ function inputOperand() {
                 num1 = displayValue
                 changeDisplay();
             } else {
-                if (displayValue === num1) {
+                if (displayValue === num1 || displayValue === '0') {
                     displayValue = ''
                 }
                 displayValue += button.value;
@@ -79,8 +79,8 @@ function inputOperator() {
 }
 
 function limitDisplay(string) {
-    if (string.length > 11) {
-        displayValue = displayValue.substring(0, 11)
+    if (string.length > 9) {
+        displayValue = displayValue.substring(0, 10)
     }
 }
 function inputDecimal() {
@@ -111,13 +111,13 @@ function inputSquareRoot() {
 function evaluate() {
         if (num1 !== null && operator !== '' && num2 !== null) {
             result = operate(Number(num1), operator, Number(num2));
-            if (operator === '÷' && num2 === '0') {
+            if (operator === '/' && num2 === '0') {
                 result = '(╯°□°)╯'
                 displayValue = result;
                 changeDisplay(); 
             }
-            if (result.toString().length > 11) {         //limit display length
-                displayValue = result.toString().substring(0, 11)
+            if (result.toString().length) {         //limit display length
+                displayValue = result.toString().substring(0, 10)
             } else {
                 displayValue = result.toString()
             }
@@ -143,7 +143,7 @@ function operate(num1, operator, num2) {
 function calculate() {
     inputOperand()
     inputOperator()
-    clearDisplay();
+    clearDisplay()
     equals()
     decimal()
     percent()
